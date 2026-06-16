@@ -14,11 +14,11 @@ jobs:
           distribution: 'microsoft'
           java-version: '21'
 
-      - name: Unzip Project Files
+      - name: Extract Project Files
         run: |
           unzip asik_clean.zip
-          mv asik/* .
-          rm -rf asik asik_clean.zip
+          cp -r asik/* .
+          cp asik/.gradlew* . 2>/dev/null || true
 
       - name: Make Gradle Executable
         run: chmod +x gradlew
